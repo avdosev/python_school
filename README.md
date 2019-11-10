@@ -7,7 +7,10 @@
 
 ## ссылки
 
-где брать инфу: https://pythonworld.ru
+Интерпретатор питона: https://www.python.org/
 
-либа graph: [тут](http://kpolyakov.spb.ru/loadstat.php?f=/download/pygraph.zip) или http://kpolyakov.spb.ru/loadstat.php?f=/download/pygraph.zip
+Редактор кода/IDE: [vscode](https://code.visualstudio.com/) или [pycharm](https://www.jetbrains.com/pycharm/)
+
+Где брать инфу: https://pythonworld.ru
+
 

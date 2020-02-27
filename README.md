@@ -7,6 +7,8 @@
 
 ## ссылки
 
+Если ты совсем новичок: [Энциклопедия профессора Фортрана](./book/encyclopedia_of_professor_fortran.pdf)
+
 Интерпретатор питона: https://www.python.org/
 
 Редактор кода/IDE: [vscode](https://code.visualstudio.com/) или [pycharm](https://www.jetbrains.com/pycharm/)

@@ -58,8 +58,37 @@ border.goto(-311, -311)
 border.goto(-311, 311)
 ```
 
+Создаем змейку
+```Python
+snake = turtle.Turtle()
+snake.shape('square')
+```
+
 создаем слушатели для змейки
 ```Python
+# snake control
+screen.onkeypress(lambda: snake.setheading(90), 'Up')
+screen.onkeypress(lambda: snake.setheading(270), 'Down')
+screen.onkeypress(lambda: snake.setheading(180), 'Left')
+screen.onkeypress(lambda: snake.setheading(0), 'Right')
+screen.listen()
+```
+
+дальше легко...
+
+Окс, сейчас у нас глупый квадратик бегает по экрану, а мы хотим змея
+
+вот так выглядит структура змея (в оригинальном виде, в дальнейшем у нас будет змей удлиняться), также нам нужно изменить наши слушатели
+```Python
+snake = []
+for i in range(3):
+    snake_segment = turtle.Turtle()
+    snake_segment.shape('square')
+    snake_segment.penup()
+    if i > 0:
+        snake_segment.color('gray')
+    snake.append(snake_segment)
+
 # snake control
 screen.onkeypress(lambda: snake[0].setheading(90), 'Up')
 screen.onkeypress(lambda: snake[0].setheading(270), 'Down')
@@ -68,4 +97,17 @@ screen.onkeypress(lambda: snake[0].setheading(0), 'Right')
 screen.listen()
 ```
 
-дальше легко...
+Если сейчас запустить то можно увидеть что двигается только голова (если вообще что то двигается) в то время как тело остается неподвижным. Нам нужно изменить то как змей двигается, ниже приведен пример кода.
+
+```python
+# snake body movement
+for i in range(len(snake)-1, 0, -1):
+    x = snake[i-1].xcor()
+    y = snake[i-1].ycor()
+    snake[i].goto(x, y)
+
+# snake head movement
+snake[0].forward(20)
+```
+
+

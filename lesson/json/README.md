@@ -39,7 +39,7 @@ JSON или JavaScript Object Notation — текстовый формат об�
 
 Пример сериализации JSON Python
 
-~~~Python
+~~~python
 import json
 
 data = {
@@ -54,7 +54,7 @@ with open("data_file.json", "w") as write_file:
     json.dump(data, write_file)
 ~~~
 или для строки
-~~~Python
+~~~python
 json_string = json.dumps(data)
 ~~~
 
@@ -62,7 +62,7 @@ json_string = json.dumps(data)
 
 Представьте что у вас есть некие данные, хранящиеся на диске, которыми вы хотите манипулировать в памяти. Вам все еще нужно будет воспользоваться контекстным менеджером, но на этот раз, вам нужно будет открыть существующий data_file.json в режиме для чтения.
 
-~~~Python
+~~~python
 import json
 
 with open("data_file.json", "r") as read_file:
@@ -70,7 +70,7 @@ with open("data_file.json", "r") as read_file:
     print(data)
 ~~~
 или для строки
-~~~Python
+~~~python
 json_string = """
 {
     "researcher": {

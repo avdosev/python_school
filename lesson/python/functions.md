@@ -44,8 +44,8 @@ print(summa) # 4
 ```python
 def stats(data):
     """данные должны быть списком"""
-    total = sum(data) # обратите внимание на подчеркивание, чтобы избежать переименования встроенной функции sum
-    mean = total / float(len(data)) # обратите внимание на использование функции float, чтобы избежать деления на целое число
+    total = sum(data)
+    mean = total / len(data)
     return total, mean # возвращаем x, y — кортеж!
 
 m, v = stats([1, 2, 1])

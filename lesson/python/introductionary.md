@@ -39,7 +39,7 @@ choco install -y vscode
 1. качаем питон
 2. устанавливаем нажав `Install now` не забыв поставить галочку напротив `add python to path` 
     
-    ![](./img/python_install_1.png)
+    ![](./img/introductory/python_install_1.png)
 
 3. Ну и везде кликаем далее
 4. Аналогично предыдущим шагам делаем c Visual Code

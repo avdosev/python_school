@@ -7,7 +7,7 @@
 Но вот краткий список:
 * [Занятия python](./lesson/python)
 * [Криптография](./lesson/cryptography)
-* [JSON](./lessong/json)
+* [JSON](./lesson/json)
 
 ## ссылки
 

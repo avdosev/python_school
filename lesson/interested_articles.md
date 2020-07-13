@@ -4,12 +4,12 @@
 
 ## Оглавление
 
-* [Python](#Python)
-* [C++](#C++)
-* [Math](#Math)
-* [Algorithms](#Algorithms)
-* [Data structs](#Data\ structs)
-* [Other](#Other)
+* [Python](#python)
+* [C++](#c)
+* [Math](#math)
+* [Algorithms](#algorithms)
+* [Data structs](#data-structs)
+* [Other](#other)
 
 ## Python
 

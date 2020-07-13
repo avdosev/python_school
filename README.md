@@ -8,6 +8,7 @@
 * [Занятия python](./lesson/python)
 * [Криптография](./lesson/cryptography)
 * [JSON](./lesson/json)
+* [Code challenges](./code_challenge)
 
 ## ссылки
 

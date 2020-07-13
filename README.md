@@ -9,6 +9,7 @@
 * [Криптография](./lesson/cryptography)
 * [JSON](./lesson/json)
 * [Code challenges](./code_challenge)
+* [Список интересных статей](./interested_articles.md)
 
 ## ссылки
 

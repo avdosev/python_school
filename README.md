@@ -10,6 +10,7 @@
 * [JSON](./lesson/json)
 * [Code challenges](./code_challenge)
 * [Список интересных статей](./lesson/interested_articles.md)
+* [Проекты для прокачки практических навыков](./projects)
 
 ## ссылки
 

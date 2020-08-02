@@ -67,7 +67,7 @@ accounts_db = DataBase('data/accounts')
 def get_accounts():
     return jsonify({'accounts': accounts_db.get_all()})
 
-@app.route('/api/accounts', method=['POST'])
+@app.route('/api/accounts', methods=['POST'])
 def create_account():
     if not request.json:
         abort(400)
@@ -97,11 +97,11 @@ if __name__ == '__main__':
 
 Ниже представленна небольшая заготовка:
 ```python
-@app.route('/api/accounts/<int:id>', method=['PUT'])
+@app.route('/api/accounts/<int:id>', methods=['PUT'])
 def update_account(id):
     pass
 
-@app.route('/api/accounts/<int:id>', method=['DELETE'])
+@app.route('/api/accounts/<int:id>', methods=['DELETE'])
 def delete_account(id):
     pass
 ```

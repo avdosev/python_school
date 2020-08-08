@@ -98,17 +98,17 @@ Jinja — один из самых мощных и популярных движ
 
 Внутри тега main мы и будем хранить карточки со всеми паролями 
 
-Напишем заготовку для карточки. Элементы которые зависят от данных мы будем помечать так `{{ account.field_name }}` 
+Напишем заготовку для карточки. Элементы которые зависят от данных мы будем помечать так `&#123;&#123; account.field_name &#125;&#125;` 
 
 ```html
 <div class="account_card">
-    <div class="account_card_service">{{ account.service }}</div>
-    <div class="account_card_email">{{ account.email }}</div>
-    <div class="account_card_password">{{ account.password }}</div>
+    <div class="account_card_service">&#123;&#123; account.service &#125;&#125;</div>
+    <div class="account_card_email">&#123;&#123; account.email &#125;&#125;</div>
+    <div class="account_card_password">&#123;&#123; account.password &#125;&#125;</div>
 </div>
 ```
 
-На самом деле `{{ account.field_name }}` это часть синтаксиса Jinja, и мы просто вставляли реальное содержимое какого-то аккаунта. Но ведь аккаунтов много а карточка одна. Да, для этого мы будем использовать цикл `for`. Ага, он тоже есть в Jinja.
+На самом деле `&#123;&#123; account.field_name &#125;&#125;` это часть синтаксиса Jinja, и мы просто вставляли реальное содержимое какого-то аккаунта. Но ведь аккаунтов много а карточка одна. Да, для этого мы будем использовать цикл `for`. Ага, он тоже есть в Jinja.
 
 ```html
 <!DOCTYPE html>
@@ -119,13 +119,13 @@ Jinja — один из самых мощных и популярных движ
 </head>
 <body>
     <main>
-        {% for account in accounts %}
+        &#123;% for account in accounts %&#125;
         <div class="account_card">
-            <div class="account_card_service">{{ account.service }}</div>
-            <div class="account_card_email">{{ account.email }}</div>
-            <div class="account_card_password">{{ account.password }}</div>
+            <div class="account_card_service">&#123;&#123; account.service &#125;&#125;</div>
+            <div class="account_card_email">&#123;&#123; account.email &#125;&#125;</div>
+            <div class="account_card_password">&#123;&#123; account.password &#125;&#125;</div>
         </div>
-        {% endfor %}
+        &#123;% endfor %&#125;
     </main>
 </body>
 ```

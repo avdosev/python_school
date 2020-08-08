@@ -63,7 +63,90 @@ HTML — теговый язык разметки документов. Любо
 
 ### Практика
 
+Для создания html есть два пути:
+1. Серверный рендер
+2. Клиентский рендер
 
+У обоих вариантов есть свои плюсы и минусы. Заостряться на которых пока нет ни сил ни желания (может потом оно появится).
+
+Важно одно оба варианта имеют право на жизнь и пока мы расмотрим серверный рендер на базе html-templates или шаблоны (есть и другие варианты для серверного рендера).
+
+Шаблон — это всего лишь текстовый файл с HTML-кодом и дополнительными элементами разметки, которые обозначают динамический контент.
+Последний станет известен в момент запроса. Процесс, во время которого динамическая разметка заменяется, и генерируется статическая HTML-страница, называется отрисовкой (или рендерингом) шаблона. 
+Во Flask есть встроенный движок шаблонов Jinja, который и занимается тем, что конвертирует шаблон в статический HTML-файл.
+
+Jinja — один из самых мощных и популярных движков для обработки шаблонов для языка Python. 
+Он должен быть известен пользователям Django. Но стоит понимать, что Flask и Jinja – два разных пакета, и они могут использоваться отдельно.
+
+По умолчанию, Flask ищет шаблоны в подкаталоге templates внутри папки приложения. Это поведение можно изменить, передав аргумент template_folder конструктору Flask во время создания экземпляра приложения.
+
+На базе этого и напишем базовую страницу со всеми паролями.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <main>
+        ...
+    </main>
+</body>
+```
+
+Внутри тега main мы и будем хранить карточки со всеми паролями 
+
+Напишем заготовку для карточки. Элементы которые зависят от данных мы будем помечать так `{{ account.field_name }}` 
+
+```html
+<div class="account_card">
+    <div class="account_card_service">{{ account.service }}</div>
+    <div class="account_card_email">{{ account.email }}</div>
+    <div class="account_card_password">{{ account.password }}</div>
+</div>
+```
+
+На самом деле `{{ account.field_name }}` это часть синтаксиса Jinja, и мы просто вставляли реальное содержимое какого-то аккаунта. Но ведь аккаунтов много а карточка одна. Да, для этого мы будем использовать цикл `for`. Ага, он тоже есть в Jinja.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <main>
+        {% for account in accounts %}
+        <div class="account_card">
+            <div class="account_card_service">{{ account.service }}</div>
+            <div class="account_card_email">{{ account.email }}</div>
+            <div class="account_card_password">{{ account.password }}</div>
+        </div>
+        {% endfor %}
+    </main>
+</body>
+```
+Все, далее нам нужно будет просто при начале рендера подавать список аакаунтов которые нужно рендерить.
+
+```python
+from flask import Flask, render_template
+from DataBase import DataBase # Наш класс базы данных
+
+app = Flask()
+accounts_db = DataBase(f'data/accounts.json')
+
+@app.route('/')
+def page_all_accounts():
+    accounts = accounts)db.get_all()
+    return render_template('accounts.html', accounts=accounts)
+
+
+if __name__ == '__main__':
+    app.run()
+```
 
 ## CSS
 

@@ -341,4 +341,34 @@ html {
 
 ## JavaScript
 
-Его пока не будет, сосамба
+### Практика
+
+Нужно добавить к head подключение скрипта
+
+```html
+<head>
+    <!-- other tags -->
+    <script src="script.js" defer></script>
+</head>
+```
+
+Внутри файла пишем код.
+
+
+```js
+// добавляем событие
+document.addEventListener('click', event => {
+    // создаем неизменяемую переменную с элементом который испустил событие
+    const element = event.target;
+    // определям кто испустил событие
+    const is_icon = element.classList.contains('no-view-icon') ||
+                    element.classList.contains('view-icon');
+    if (is_icon) {
+        // меняем стили у иконки
+        element.classList.toggle('no-view-icon');
+        element.classList.toggle('view-icon');
+        // меняем стили у родителя
+        element.parentNode.classList.toggle('secret-text');
+    }
+});
+```

@@ -221,18 +221,20 @@ p {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Указывается титульник страницы -->
     <title>Title</title>
+    <!-- Ссылка браузеру где брать стили -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
         <div class="account_card_container">
-            [% for account in accounts %]
             <div class="account_card">
-                <div class="account_card_service">[[ account.service ]]</div>
-                <div class="account_card_email">[[ account.email ]]</div>
-                <div class="account_card_password">[[ account.password ]]</div>
+                <div class="account_card_service">service name</div>
+                <div class="account_card_email">email data</div>
+                <div class="account_card_password">very secret password<img class="view-icon icon" /></div>
             </div>
-            [% endfor %]
+            <!-- Тут еще десятка два таких карточек --->
         <div>
     </main>
 </body>
@@ -243,6 +245,99 @@ p {
 Для этого можно использовать [Flex](https://html5book.ru/css3-flexbox/) или [Grid](https://css-live.ru/articles/znakomstvo-s-css-grid-layout.html).
 
 Я снова не буду останавливаться на этом подробно тк эта гора текста увеличится еще раза 2. Вам хватит и того что я копипасщу с вики. 
+
+![only html](./img/only_html.png)
+
+В общем как-то так будет выглядеть наш хтмл без стилей. Как по мне очень даже минималистично и функционально.
+
+Но привередливый читатель скажет, что хочется красивостей и негоже проекту за 0,000,000$ быть таким не красивым. А я соглашусь.
+
+В общем не буду вас мучать текстом и покажу как должно стать а потом расскажу как.
+
+![html with css](./img/with_css_html.png)
+
+> \- Как какать? \
+> \- Это нужно почувствовать. Если почувствуешь, то просто плыви по течению.
+
+Лан, это было небольшое отступление
+
+Файлики которые нужно скачать:
+<a download href="./img/view.svg">view.svg</a>
+<a download href="./img/no-view.svg">no-view.svg</a>
+
+Они используются как кнопка скрыть/показать пароль
+
+Создаем переменные для цветов.
+```css
+:root {
+    --background-color: #f6f8fa;
+    --card-color: white;
+    --card-border-color: #e1e4e8;
+}
+```
+
+Задаем основной цвет нашего хтмл
+
+```css
+html {
+    background-color: var(--background-color);
+}
+```
+
+Добавляем стили для карточки с паролем
+
+```css
+.account_card {
+    border-radius: 10px;
+    border-color: var(--card-border-color);
+    background-color: var(--card-color);
+    border-width: 1px;
+    border-style: solid;
+    padding: 20px;
+    margin: 10px;
+}
+```
+Конечно, просто список карточек это не топ, поэтому сделаем это в виде таблички. 
+Её особенность в том что она сама выбирает размеры и количество колонок, это очень удобно, особенно, когда нужно делать адаптив под мобилки.
+```css
+.account_card_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    align-items: center;
+    justify-content: center;
+}
+```
+Добавляем напротив пароля иконку скрытый/закрытый. (ХТМЛ для иконки есть мы просто меняем его стиль) 
+```css
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.view-icon {
+    content: url(./view.svg);
+}
+
+.no-view-icon {
+    content: url(./no-view.svg);
+}
+```
+Выравниваем текст пароля и иконку.
+```css
+.account_card_password {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.secret-text {
+    -webkit-text-security:disc;
+    /* this code not working on firefox */
+}
+```
+
+Хоба, готово
 
 ## JavaScript
 

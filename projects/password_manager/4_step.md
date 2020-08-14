@@ -339,6 +339,23 @@ html {
 
 Хоба, готово
 
+Осталось только добавить css файлик в head тег html
+
+Сохраним наш css файл по такому пути `\static\css\style.css`
+
+И добавим в head тег link.
+Должно получиться такое:
+
+```html
+<head>
+    <title>Python Flask Bucket List App</title>
+    <!-- подключаем стили -->
+    <link href="[[ url_for('static', filename='css/style.css') ]]" rel="stylesheet">
+    <!-- подключаем скрипты -->
+    <script src="[[ url_for('static', filename='js/script.js') ]]"></script>
+</head>
+```
+
 ## JavaScript
 
 ### Практика

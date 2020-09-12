@@ -16,6 +16,27 @@
 
 Это необходимо чтобы не произошел "бесконечный цикл"
 
+## 0
+
+Закодить цикл for от N-1 до 0 (включительно) не используя ключевые слова `while` и `for`
+
+```python
+def other_func(n):
+    print(n)
+
+
+for_from(5, other_func)
+```
+
+Вывод:
+```
+4
+3
+2
+1
+0
+```
+
 ## 1
 
 Закодить цикл for от 0 до N (0 <= N) не используя ключевые слова `while` и `for`
@@ -23,10 +44,10 @@
 что то вот такое:
 
 ```python
-def print_num(n):
+def other_func(n):
     print(n)
 
-for_n(5, print_num)
+for_n(5, other_func)
 ```
 вывод:
 ```
@@ -82,7 +103,68 @@ other string 2
 > **Примечание**
 > Для пустого массива детей рекурсию можно не вызывать
 
-## 1
+## 4
+
+Обход дерева. Усложненный
+
+```json
+{
+    "tag": "root",
+    "left_nodes": [
+        {
+            "name": 1,
+            "left_nodes": [
+                {
+                    "name": 2,
+                    "left_nodes": [],
+                    "right_nodes": []
+                }
+            ],
+            "right_nodes": [
+                {
+                    "tag": "puk",
+                    "left_nodes": [],
+                    "right_nodes": []
+                },
+            ]
+        },
+        {
+            "name": 3,
+            "left_nodes": [],
+            "right_nodes": []
+        },
+    ],
+    "right_nodes": [
+        {
+            "tag": "1",
+            "children": []
+        },
+        {
+            "tag": "2",
+            "children": []
+        },
+    ]
+}
+```
+
+Нужно пройтись по входяшему джсону или похожем объекте и вывести все имена.
+
+Имя левых нод - `"left node " + str(-name)` \
+Имя правых нод - `"right node tag:" + tag` 
+
+Корневая нода - правая
+
+Должен получиться такой вывод:
+```
+right node tag:root
+left node -1
+left node -2
+right node tag:puk
+left node -3
+right node tag:1
+right node tag:2
+```
+
 ## 1
 ## 1
 ## 1
